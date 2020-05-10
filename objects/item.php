@@ -1,15 +1,19 @@
 <?php
-class CatetoryRelations{
+class Item{
  
     // database connection and table name
     private $conn;
-    private $table_name = "category";
+    private $table_name = "item";
  
     // object properties
     public $Id;
-    public $UUID;
-    public $categoryId;
-    public $ParentcategoryId;
+    public $CustomData;
+    public $Number;
+    public $Barcode;
+    public $Name1;
+    public $Name2;
+    public $Name3;
+    public $Note;
 
  
     public function __construct($db){
@@ -17,7 +21,7 @@ class CatetoryRelations{
     }
  
     // used by select drop-down list
-    function readAll(){
+    function getCount(){
         //select all data
         $query = "select category.Id as categoryId,ParentcategoryId from category left join catetory_relations
 on category.Id = catetory_relations.categoryId order by ParentcategoryId";  

@@ -21,10 +21,10 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item <?php if($page_title== 'Task1') echo 'active'; ?>">
-            <a class="nav-link" href="#">Task1</a>
+            <a class="nav-link" href="task1.php">Task1</a>
           </li>
           <li class="nav-item <?php if($page_title== 'Task2') echo 'active'; ?>">
-            <a class="nav-link" href="#">Task2</a>
+            <a class="nav-link" href="task2.php">Task2</a>
           </li>
         </ul>
       </div>

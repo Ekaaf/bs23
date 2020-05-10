@@ -4,32 +4,31 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 	include_once 'config/database.php';
-	include_once 'objects/catetoryRelations.php';
+	include_once 'objects/item.php';
 	 
 	$database = new Database();
 	$db = $database->getConnection();
 	 
-	$CatetoryRelations = new CatetoryRelations($db);
-	$stmt = $CatetoryRelations->readAll();
+	$Item = new Item($db);
+	$stmt = $Item->getCount();
 
-	$page_title = "Task2";
+	$page_title = "Task1";
 	include_once "layout_header.php";
 
 	$items = [];
-	while ($row = $stmt->fetch(PDO::FETCH_OBJ)){
-		$items[] = $row;
-	}
+	// while ($row = $stmt->fetch(PDO::FETCH_OBJ)){
+	// 	$items[] = $row;
+	// }
 
-print_r($items);
-$childs = array();
+ //  $childs = array();
 
-foreach($items as $item)
-    $childs[$item->ParentcategoryId][] = $item;
+ //  foreach($items as $item)
+ //      $childs[$item->ParentcategoryId][] = $item;
 
-foreach($items as $item) if (isset($childs[$item->categoryId]))
-    $item->childs = $childs[$item->categoryId];
+ //  foreach($items as $item) if (isset($childs[$item->categoryId]))
+ //      $item->childs = $childs[$item->categoryId];
 
-$tree = $childs;
+ //  $tree = $childs;
 
 
 ?>
