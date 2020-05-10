@@ -1,8 +1,5 @@
 <?php
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
+	
 	include_once 'config/database.php';
 	include_once 'objects/catetoryRelations.php';
 	 

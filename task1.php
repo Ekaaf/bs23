@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 	include_once 'config/database.php';
 	include_once 'objects/item.php';
 	 
@@ -20,43 +17,23 @@ ini_set('display_errors', 1);
 	// 	$items[] = $row;
 	// }
 
- //  $childs = array();
-
- //  foreach($items as $item)
- //      $childs[$item->ParentcategoryId][] = $item;
-
- //  foreach($items as $item) if (isset($childs[$item->categoryId]))
- //      $item->childs = $childs[$item->categoryId];
-
- //  $tree = $childs;
-
 
 ?>
 	
-
-<!-- <ul id="myUL">
-  <li><span class="caret">Beverages</span>
-    <ul class="nested">
-      <li>Water</li>
-      <li>Coffee</li>
-      <li><span class="caret">Tea</span>
-        <ul class="nested">
-          <li>Black Tea</li>
-          <li>White Tea</li>
-          <li><span class="caret">Green Tea</span>
-            <ul class="nested">
-              <li>Sencha</li>
-              <li>Gyokuro</li>
-              <li>Matcha</li>
-              <li>Pi Lo Chun</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul> -->
-
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">CategoryName</th>
+      <th scope="col">Total Items</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+  </tbody>
+</table>
  <?php
 include_once "layout_footer.php";
 ?>
