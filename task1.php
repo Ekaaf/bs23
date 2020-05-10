@@ -13,11 +13,11 @@
 	include_once "layout_header.php";
 
 	$items = [];
-	// while ($row = $stmt->fetch(PDO::FETCH_OBJ)){
-	// 	$items[] = $row;
-	// }
+	while ($row = $stmt->fetch(PDO::FETCH_OBJ)){
+		$items[] = $row;
+	}
 
-
+// var_dump($items[0]);exit();
 ?>
 	
 <table class="table table-striped">
@@ -28,10 +28,14 @@
     </tr>
   </thead>
   <tbody>
+    <?php 
+      foreach ($items as $item) {
+    ?>
     <tr>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td><?php echo $item->category_name; ?></td>
+      <td><?php echo $item->total_item; ?></td>
     </tr>
+    <?php }?> 
   </tbody>
 </table>
  <?php

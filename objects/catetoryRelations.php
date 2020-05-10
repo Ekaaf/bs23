@@ -20,7 +20,7 @@ class CatetoryRelations{
     function readAll(){
         //select all data
         $query = "select category.Id as categoryId,ParentcategoryId from category left join catetory_relations
-on category.Id = catetory_relations.categoryId order by ParentcategoryId";  
+            on category.Id = catetory_relations.categoryId order by ParentcategoryId";  
  
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
