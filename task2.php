@@ -22,14 +22,21 @@
 		$items[] = $row;
 	}
 
-$data = array_slice($items, 0,5);
+// $data = array_slice($items, 0,5);
 // $data = $items;
 // $test = [];
+// $prev1 = '';$prev1i = 0;
+// $prev2 = '';$prev2i = 0;
 // foreach ($data as $d) {
-// 	$new = [];
-// 	array_push($test, $new);
+// 	$test[$d['lev1']] = $d['lev1'];
+// 	if(!is_null($d['lev2'])){
+// 		$test[$d['lev1']][] = $d['lev2'];
+// 	}
 // }
-// var_dump($test);exit();
+// // $new[0] =1;
+// // $new[1] =5;
+// // $new[2] =[23,24,25];
+var_dump($items);exit();
 ?>
 	
 <h2>Please click to open</h2>
