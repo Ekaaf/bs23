@@ -22,26 +22,15 @@
 		$items[] = $row;
 	}
 
-// $data = array_slice($items, 0,5);
-// $data = $items;
-// $test = [];
-// $prev1 = '';$prev1i = 0;
-// $prev2 = '';$prev2i = 0;
-// foreach ($data as $d) {
-// 	$test[$d['lev1']] = $d['lev1'];
-// 	if(!is_null($d['lev2'])){
-// 		$test[$d['lev1']][] = $d['lev2'];
-// 	}
-// }
-// // $new[0] =1;
-// // $new[1] =5;
-// // $new[2] =[23,24,25];
-var_dump($items);exit();
+$data = array_slice($items, 0,5);
+$data = $items;
+// var_dump(count($data));exit();
 ?>
 	
 <h2>Please click to open</h2>
 <ul id="myUL">
 	<?php
+		$depth = 1;
 		$prevLev1 = ''; 
 		$prevLev2 = '';
 		$prevLev3 = '';
@@ -50,57 +39,25 @@ var_dump($items);exit();
 		$prevLev6 = '';
 		$prevLev7 = '';
 		$check1 = 0;$check2 = 0;$check3 = 0;$check4 = 0;$check1 = 0;$check1 = 0;$check1 = 0;
+		$li = ""; 
 		foreach ($data as $d) {
-	?>
-  	<?php
-		  $li = ""; 
-			if(!is_null($d['lev2'])){
-				if($prevLev1!=$d['lev1']){
-					$prevLev1 = $d['lev1'];
-					if($check2==1){
-						$li .= '</ul>';
-					}
-					$li .= '<li><span class="caret">'.$categories[$d['lev1']].'1</span><ul class="nested">';
-					$check2 = 0;
+		
+			if(!is_null($d['lev2']) && $prevLev1 != $d['lev1']){
+				if($check1 == 1){
+					$li .= "</ul>";
+					$check1 = 0;
 				}
-				
-				if(!is_null($d['lev3'])){
-					if($prevLev2!=$d['lev2']){
-						$prevLev2 = $d['lev2'];
-						if($check3==1){
-							$li .= '</ul>';
-						}
-						$li .= '<li><span class="caret">'.$categories[$d['lev2']].'2</span><ul class="nested">';
-						$check3 = 0;
-					}
-					else{
-						$check3 = 1;
-						$li .='<li>'.$categories[$d['lev3']].'3</li>';
-					}
-					if(!is_null($d['lev4']) ){
-						if($prevLev3!=$d['lev3']){
-							$prevLev3 = $d['lev3'];
-							if($check4==1){
-								$li .= '</ul>';
-							}
-							$li .= '<li><span class="caret">'.$categories[$d['lev3']].'</span><ul class="nested">';
-							$check4 = 0;
-						}
-						else{
-						$check4 = 1;
-							$li .='<li>'.$categories[$d['lev3']].'3</li>';
-						}
-					}
-				}
-				
-				// else{
-				// 	$li .= '</li>'
-				// }
+				$li .= '<li><span class="caret">'.$categories[$d['lev1']].'1</span><ul class="nested">';
+				$check1 = 1;
 			}
-
-			echo $li;
-		?>
-  <?php } ?>
+			if(is_null($d['lev2'])){
+				$li .= "<li>".$d['lev1']."</li>";
+			}
+			$prevLev1 = $d['lev1'];
+				
+		} 
+		echo $li;
+  ?>
 </ul>
 
 <br><br>
@@ -126,6 +83,7 @@ var_dump($items);exit();
     </ul>
   </li>
 </ul>
+
  <?php
 include_once "layout_footer.php";
 ?>
