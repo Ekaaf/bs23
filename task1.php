@@ -32,8 +32,8 @@
       foreach ($items as $item) {
     ?>
     <tr>
-      <td><?php echo $item->category_name; ?></td>
-      <td><?php echo $item->total_item; ?></td>
+      <td><?php echo $item->catname; ?></td>
+      <td><?php echo $item->total; ?></td>
     </tr>
     <?php }?> 
   </tbody>
