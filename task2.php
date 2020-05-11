@@ -23,8 +23,13 @@
 	}
 
 $data = array_slice($items, 0,5);
-$data = $items;
-// var_dump(count($data));exit();
+// $data = $items;
+// $test = [];
+// foreach ($data as $d) {
+// 	$new = [];
+// 	array_push($test, $new);
+// }
+// var_dump($test);exit();
 ?>
 	
 <h2>Please click to open</h2>

@@ -31,17 +31,15 @@ class Item{
             left join catetory_relations as t5 on t4.categoryId = t5.ParentcategoryId
             left join catetory_relations as t6 on t5.categoryId = t6.ParentcategoryId
             LEFT join (SELECT categoryId as cat, count(ItemNumber) as total 
-            FROM bs.Item_category_relations group by categoryId)
+            FROM Item_category_relations group by categoryId)
             as test
             on t6.categoryId = test.cat OR t5.categoryId = test.cat OR t4.categoryId = test.cat 
             OR t3.categoryId = test.cat OR t2.categoryId = test.cat OR t1.categoryId = test.cat
             OR t1.ParentcategoryId = test.cat 
-            inner join (SELECT * FROM bs.category where Id not in 
+            inner join (SELECT * FROM category where Id not in 
             (Select categoryId from catetory_relations)) as cat
             on t1.ParentcategoryId = cat.Id
-            group by t1.ParentcategoryId
-            
-            ";  
+            group by t1.ParentcategoryId";  
  
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
